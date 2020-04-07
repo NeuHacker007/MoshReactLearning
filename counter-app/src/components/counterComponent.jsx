@@ -8,9 +8,9 @@ class Counter extends Component {
     fontSize: 20,
     fontWeight: "bold",
   };
-  handleIncrement() {
-    console.log("Counter Increased");
-  }
+  handleIncrement = () => {
+    console.log("Counter Increased", this);
+  };
   render() {
     return (
       <div>
