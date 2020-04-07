@@ -6,9 +6,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import Counter from "./components/counterComponent";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Counter />
-  </React.StrictMode>,
+  //<React.StrictMode>
+  <Counter />,
+  //</React.StrictMode>,
   document.getElementById("root")
 );
 
