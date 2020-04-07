@@ -8,6 +8,12 @@ class Counter extends Component {
     fontSize: 20,
     fontWeight: "bold",
   };
+  // The below solution is the old way to dealing with this binding problem in React.
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+  // The fat arrow function doesn't needs to rebind the this to refer to the component obj
   handleIncrement = () => {
     console.log("Counter Increased", this);
   };
