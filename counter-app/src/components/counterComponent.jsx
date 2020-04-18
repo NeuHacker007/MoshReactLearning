@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 class Counter extends Component {
   state = {
-    count: 1,
+    count: 0,
     tags: ["tag1", "tag2", "tag3"],
   };
   styles = {
@@ -14,17 +14,24 @@ class Counter extends Component {
   //   this.handleIncrement = this.handleIncrement.bind(this);
   // }
   // The fat arrow function doesn't needs to rebind the this to refer to the component obj
-  handleIncrement = () => {
-    console.log("Counter Increased", this);
-
-    // In react, it doesn't automactically detect the changes, we 
-    // need to call setState method of react to keep view and data sync
-    // explicitly. The SetState will merge or update the state based on 
-    // whether the origin state already have this property or not.
-    this.setState({
-      count: this.state.count + 1
-    });
+  handleIncrement = (productId) => {
+    console.log(productId);
   };
+  /**
+   * This is one way to passing event paremeter,
+   * It wraps the real handleIncrement function with
+   * another function just because, in
+   *  onClick ={function}
+   * the function here is just the memory address which
+   * cannot have () to pass in the parameter,
+   * An altertive way is just put this dohandleIncrement
+   * replace the function in onClick. To avoid messy by wrapping
+   * too many levels
+   */
+  doHandleIncrement = () => {
+    this.handleIncrement({ id: 1 });
+  };
+
   render() {
     return (
       <div>
@@ -32,7 +39,7 @@ class Counter extends Component {
           {this.formatCounter()}
         </span>
         <button
-          onClick={this.handleIncrement}
+          onClick={this.doHandleIncrement}
           className="btn btn-secondary btn-sm"
         >
           Increment
