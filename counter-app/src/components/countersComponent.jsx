@@ -16,7 +16,9 @@ class Counters extends Component {
       <div>
         {this.state.counters.map((counter) => {
           return (
-            <Counter key={counter.id} value={counter.value} selected={true} />
+            <Counter key={counter.id} value={counter.value} selected={true}>
+                <h4>Counter #{counter.id}</h4>
+            </Counter>
           );
         })}
       </div>

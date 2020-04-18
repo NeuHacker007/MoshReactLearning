@@ -22,9 +22,15 @@ class Counter extends Component {
   };
 
   render() {
-    console.log("props", this.props);
+    // console.log("props", this.props);
+    // when user want to pass some elements within the component tag
+    // this is where to use this.props.children to access those.
+    // eg. in parent component we have some elements within the component tag
+    //    <Counter> <h4></h4> </Counter>
+    // we can access <h4> through this.props.children
     return (
       <div>
+        {this.props.children}
         <span style={this.styles} className={this.getBadgeClasses()}>
           {this.formatCounter()}
         </span>
