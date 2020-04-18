@@ -28,9 +28,9 @@ class Counter extends Component {
    * replace the function in onClick. To avoid messy by wrapping
    * too many levels
    */
-  doHandleIncrement = () => {
-    this.handleIncrement({ id: 1 });
-  };
+  // doHandleIncrement = () => {
+  //   this.handleIncrement({ id: 1 });
+  // };
 
   render() {
     return (
@@ -39,7 +39,7 @@ class Counter extends Component {
           {this.formatCounter()}
         </span>
         <button
-          onClick={this.doHandleIncrement}
+          onClick={() => this.handleIncrement({ id: 1 })}
           className="btn btn-secondary btn-sm"
         >
           Increment
