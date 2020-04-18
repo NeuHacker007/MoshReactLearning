@@ -14,8 +14,11 @@ class Counter extends Component {
   //   this.handleIncrement = this.handleIncrement.bind(this);
   // }
   // The fat arrow function doesn't needs to rebind the this to refer to the component obj
-  handleIncrement = (productId) => {
-    console.log(productId);
+  handleIncrement = () => {
+    //console.log(productId);
+    this.setState({
+      count: this.state.count + 1,
+    });
   };
   /**
    * This is one way to passing event paremeter,
@@ -39,7 +42,7 @@ class Counter extends Component {
           {this.formatCounter()}
         </span>
         <button
-          onClick={() => this.handleIncrement({ id: 1 })}
+          onClick={this.handleIncrement}
           className="btn btn-secondary btn-sm"
         >
           Increment
