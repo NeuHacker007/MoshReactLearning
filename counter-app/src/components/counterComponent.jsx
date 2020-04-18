@@ -16,6 +16,14 @@ class Counter extends Component {
   // The fat arrow function doesn't needs to rebind the this to refer to the component obj
   handleIncrement = () => {
     console.log("Counter Increased", this);
+
+    // In react, it doesn't automactically detect the changes, we 
+    // need to call setState method of react to keep view and data sync
+    // explicitly. The SetState will merge or update the state based on 
+    // whether the origin state already have this property or not.
+    this.setState({
+      count: this.state.count + 1
+    });
   };
   render() {
     return (
