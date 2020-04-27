@@ -1,24 +1,13 @@
 import React, { Component } from "react";
 class Counter extends Component {
-  state = {
-    value: this.props.counter.value,
-    tags: ["tag1", "tag2", "tag3"],
-  };
+ /**
+  * a component without any local state is called controlled component.
+  * It is using the props and event to communicate with components that 
+  * has local state
+  */
   styles = {
     fontSize: 20,
     fontWeight: "bold",
-  };
-  // The below solution is the old way to dealing with this binding problem in React.
-  // constructor() {
-  //   super();
-  //   this.handleIncrement = this.handleIncrement.bind(this);
-  // }
-  // The fat arrow function doesn't needs to rebind the this to refer to the component obj
-  handleIncrement = () => {
-    //console.log(productId);
-    this.setState({
-      value: this.state.value + 1,
-    });
   };
 
   render() {
@@ -34,7 +23,7 @@ class Counter extends Component {
           {this.formatCounter()}
         </span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -50,11 +39,11 @@ class Counter extends Component {
   }
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
   formatCounter() {
-    const { value: count } = this.state;
+    const { value: count } = this.props.counter;
     return count === 0 ? "Zero" : count;
   }
 }
