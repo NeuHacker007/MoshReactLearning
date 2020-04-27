@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 class Counter extends Component {
- /**
-  * a component without any local state is called controlled component.
-  * It is using the props and event to communicate with components that 
-  * has local state
-  */
+  /**
+   * a component without any local state is called controlled component.
+   * It is using the props and event to communicate with components that
+   * has local state
+   */
   styles = {
     fontSize: 20,
     fontWeight: "bold",
