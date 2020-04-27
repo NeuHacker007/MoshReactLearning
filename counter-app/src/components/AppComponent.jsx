@@ -20,6 +20,14 @@ class AppRoot extends Component {
 
     this.setState({ counters: counters });
   };
+  handleDecrement = (counter) => {
+    var counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value--;
+
+    this.setState({ counters: counters });
+  };
 
   handleReset = () => {
     const counters = this.state.counters.map((counter) => {
@@ -50,6 +58,7 @@ class AppRoot extends Component {
             onIncrement={this.handleIncrement}
             onDelete={this.handleDelete}
             onReset={this.handleReset}
+            onDecrement={this.handleDecrement}
             counters={this.state.counters}
           />
         </main>
