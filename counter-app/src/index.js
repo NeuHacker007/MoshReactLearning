@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
-import Counters from "./components/countersComponent";
+import AppRoot from "./components/AppComponent";
 
 ReactDOM.render(
   //<React.StrictMode>
-  <Counters />,
+  <AppRoot />,
   //</React.StrictMode>,
   document.getElementById("root")
 );
